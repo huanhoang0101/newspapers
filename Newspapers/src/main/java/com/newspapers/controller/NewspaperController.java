@@ -35,51 +35,47 @@ public class NewspaperController {
 
     @GetMapping("/ok")
     public ResponseEntity<List<Newspaper>> get() throws IOException {
-        int dem = 0;
-        String link="https://tuoitre.vn";
+        String link = "https://tuoitre.vn";
         org.jsoup.nodes.Document doc = Jsoup.connect(link).get();
         Elements page = doc.select("div[data-marked-zoneid=tto_home_stream1]");
-        for (Element element: page){
+        for (Element element : page) {
             Elements box_category_item = element.getElementsByClass("box-category-item");
-            for (Element newspaper: box_category_item) {
+            for (Element newspaper : box_category_item) {
                 String title = newspaper.getElementsByTag("a").last().text();
                 String img = newspaper.getElementsByTag("img").first().attr("src");
                 String description = newspaper.getElementsByTag("p").last().text();
-                if(!title.isEmpty()) {
+                if (!title.isEmpty()) {
                     System.out.println("===========");
                     System.out.println(title);
                     System.out.println(description);
                     System.out.println(img);
-                    dem++;
                 }
             }
         }
-        System.out.println(dem);
-       // Elements page = doc.select("p[data-type=sapo class=box-category-sapo need-trimline rel=3]");
-        //Elements page = doc.select("a[class=box-category-link-title data-type=0]");
-        //Element page = doc.select("div[class=box-category-item data-order=0]").first();
-        //Element page = doc.select("div[class=box-category-item data-order=0 data-id=20231005062154193]").first();
-//        Elements page = doc.select("div[class=box-category-item]");
-//        for (Element element: page) {
-//            Element pageTitle = element.getElementsByTag("a").last();
-//            if(!pageTitle.text().isEmpty()){
-//                System.out.println("===========");
-//                System.out.println(pageTitle.text());
-//                dem++;
-//            }
-//        }
-//        System.out.println(dem);
-//        Element pageTitle = page.getElementsByTag("a").first();
-//        if(pageTitle != null)
-//            System.out.println(pageTitle.text());
-//        else
-//            System.out.println("wrong");
-        //System.out.println(page.text());
-        //Elements page = doc.select("title");
-//        for (int i=1; 1<page.size();i++) {
-//            System.out.println(page.get(i).text());
-//            System.out.println("exxxx====");
-//        }
+        return new ResponseEntity<>(newspaperService.getAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/ok1")
+    public ResponseEntity<List<Newspaper>> get1() throws IOException {
+        String link = "https://tuoitre.vn";
+        org.jsoup.nodes.Document doc = Jsoup.connect(link).get();
+        Elements page = doc.select("div.footer__nav");
+        for (Element element1 : page) {
+            Elements nav_link = element1.getElementsByClass("nav-link");
+            for (Element element : nav_link) {
+                System.out.println(element.text());
+                System.out.println("======");
+            }
+        }
+        return new ResponseEntity<>(newspaperService.getAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/ok2")
+    public ResponseEntity<List<Newspaper>> get2() throws IOException {
+        String link = "https://tuoitre.vn/sieu-thi-giam-gia-manh-cac-mat-hang-ban-chay-202310060755421.htm";
+        org.jsoup.nodes.Document doc = Jsoup.connect(link).get();
+        Elements page = doc.select("div[itemprop=articleBody]");
+        System.out.println(page);
         return new ResponseEntity<>(newspaperService.getAll(), HttpStatus.OK);
     }
 }
