@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <img src="https://meu-solutions.com/wp-content/uploads/2020/08/MeU-logo-newest-08-150.png" alt="" width="30"
+                height="24">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li *ngFor="let cate of categoryList">
+                    <a class="nav-link active" href="#">{{cate.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
