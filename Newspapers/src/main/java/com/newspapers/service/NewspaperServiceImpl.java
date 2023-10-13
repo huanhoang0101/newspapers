@@ -20,4 +20,14 @@ public class NewspaperServiceImpl implements NewspaperService{
     public Newspaper add(Newspaper n) {
         return newspaperRepo.save(n);
     }
+
+    @Override
+    public List<Newspaper> addListNewspaper(List<Newspaper> list) {
+        return newspaperRepo.saveAll(list);
+    }
+
+    @Override
+    public Newspaper getDetail(int id) {
+        return newspaperRepo.findById(id).get();
+    }
 }

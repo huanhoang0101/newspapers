@@ -1,21 +1,29 @@
-<div class="newspaper">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div *ngFor="let news of newspaperList">
-            <div class="col">
-                <div class="card h-100">
-                    <div class="newspaper-img">
-                        <img src="{{news.img}}" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <div class="newspaper-title">
-                            <h5 class="card-title">Card title</h5>
+<app-navbar></app-navbar>
+<div class="homePage">
+    <div class="wrapper-container">
+        <div class="homePage-title">
+            <h1>Tin mới nhất</h1>
+        </div>
+        <div class="newspaper">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div *ngFor="let news of newspaperList">
+                    <div class="col">
+                        <div class="card h-100" [routerLink]="['/d', news.id]">
+                            <div class="newspaper-img">
+                                <img src="{{news.img}}" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card-body">
+                                <div class="newspaper-title">
+                                    <h5 class="card-title">{{news.title}}</h5>
+                                </div>
+                                <div class="newspaper-desc">
+                                    <p class="card-text">{{news.description}}</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">{{news.created_date}}</small>
+                            </div>
                         </div>
-                        <div class="newspaper-desc">
-                            <p class="card-text">{{news.description}}</p>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
                     </div>
                 </div>
             </div>

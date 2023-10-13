@@ -1,0 +1,25 @@
+.navbar {
+    box-shadow: 
+    rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, 
+    rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, 
+    rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+    min-height: 64px;
+    justify-content: center;
+    top: 0px;
+    position: sticky;
+    z-index: 1100;
+}
+
+.navbar li {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.navbar li:hover {
+    text-decoration: underline;
+}
+
+.navbar img {
+    height: 40px;
+    width: 40px;
+}

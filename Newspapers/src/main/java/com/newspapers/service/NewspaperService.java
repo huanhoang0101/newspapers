@@ -9,4 +9,6 @@ import java.util.List;
 public interface NewspaperService {
     public List<Newspaper> getAll();
     public Newspaper add (Newspaper n);
+    public List<Newspaper> addListNewspaper(List<Newspaper> list);
+    public Newspaper getDetail(int id);
 }

@@ -20,4 +20,9 @@ public class NewspaperDetail {
 
     public NewspaperDetail() {
     }
+
+    public NewspaperDetail(String content, Newspaper newspaperId) {
+        this.content = content;
+        this.newspaperId = newspaperId;
+    }
 }

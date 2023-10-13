@@ -20,34 +20,26 @@ public class Newspaper {
     @Column(name = "img")
     private String img;
 
+    @Column(name = "content", columnDefinition="TEXT")
+    private String content;
+
+    @Column(name = "created_date")
+    private String created_date;
+
     public Newspaper() {
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
+    public Newspaper(String title, String description, String img) {
         this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
         this.img = img;
+    }
+
+    public Newspaper(String title, String description, String img, String content, String created_date) {
+        this.title = title;
+        this.description = description;
+        this.img = img;
+        this.content = content;
+        this.created_date = created_date;
     }
 }

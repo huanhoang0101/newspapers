@@ -1,0 +1,40 @@
+.homePage {
+    padding: 40px;
+}
+
+.wrapper-container {
+    padding: 0 100px;
+}
+
+.homePage-title {
+    margin-bottom: 40px;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+
+    
+    
+}
+
+.homePage-title::before {
+    background-color: #075794;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.homePage-title h1 {
+    background-color: #fff;
+    color: #075794;
+    display: inline-block;
+    font-size: 48px;
+    font-weight: 700;
+    padding: 0 30px;
+    position: relative;
+    text-transform: capitalize;
+    z-index: 2;
+}
+

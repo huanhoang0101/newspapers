@@ -1,5 +1,6 @@
 package com.newspapers.service;
 
+import com.newspapers.model.Newspaper;
 import com.newspapers.model.NewspaperDetail;
 import com.newspapers.repository.NewspaperDetailRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,5 +15,10 @@ public class NewspaperDetailServiceImpl implements NewspaperDetailService{
     @Override
     public NewspaperDetail getContent(int id) {
         return newspaperDetailRepo.findById(id).get();
+    }
+
+    @Override
+    public NewspaperDetail addContent(NewspaperDetail detail) {
+        return newspaperDetailRepo.save(detail);
     }
 }

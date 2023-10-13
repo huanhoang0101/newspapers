@@ -3,4 +3,6 @@ export interface Newspaper {
     title: string;
     description: string;
     img: string;
+    content: string;
+    created_date: string;
 }
