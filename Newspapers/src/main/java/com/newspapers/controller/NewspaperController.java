@@ -24,7 +24,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/api")
 public class NewspaperController {
-    private static final Logger LOGGER = LoggerFactory.getLogger(NewspaperController.class);
+    //private static final Logger LOGGER = LoggerFactory.getLogger(NewspaperController.class);
     @Autowired
     private NewspaperService newspaperService;
     @Autowired
@@ -32,7 +32,7 @@ public class NewspaperController {
 
     @GetMapping("/get")
     public ResponseEntity<List<Newspaper>> getAll() {
-        LOGGER.info("LoggerService done");
+        //LOGGER.info("LoggerService done");
         return new ResponseEntity<>(newspaperService.getAll(), HttpStatus.OK);
     }
 
@@ -51,7 +51,6 @@ public class NewspaperController {
                 String description = newspaper.getElementsByTag("p").last().text();
                 String linkToDetail = "https://tuoitre.vn/";
                 linkToDetail += newspaper.getElementsByTag("a").first().attr("href");
-                System.out.println(linkToDetail);
                 if (!title.isEmpty()) {
                     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                     Date date = new Date();
@@ -70,28 +69,28 @@ public class NewspaperController {
     }
 
     //
-    @GetMapping("/ok1")
-    public ResponseEntity<List<Newspaper>> get1() throws IOException {
-        String link = "https://tuoitre.vn";
-        org.jsoup.nodes.Document doc = Jsoup.connect(link).get();
-        Elements page = doc.select("div.footer__nav");
-        for (Element element1 : page) {
-            Elements nav_link = element1.getElementsByClass("nav-link");
-            for (Element element : nav_link) {
-                System.out.println(element.text());
-                System.out.println("======");
-            }
-        }
-        return new ResponseEntity<>(newspaperService.getAll(), HttpStatus.OK);
-    }
+//    @GetMapping("/ok1")
+//    public ResponseEntity<List<Newspaper>> get1() throws IOException {
+//        String link = "https://tuoitre.vn";
+//        org.jsoup.nodes.Document doc = Jsoup.connect(link).get();
+//        Elements page = doc.select("div.footer__nav");
+//        for (Element element1 : page) {
+//            Elements nav_link = element1.getElementsByClass("nav-link");
+//            for (Element element : nav_link) {
+//                System.out.println(element.text());
+//                System.out.println("======");
+//            }
+//        }
+//        return new ResponseEntity<>(newspaperService.getAll(), HttpStatus.OK);
+//    }
 
     //get detail newspaper from web
-    @GetMapping("/ok2")
-    public ResponseEntity<List<Newspaper>> get2() throws IOException {
-        String link = "https://tuoitre.vn/sieu-thi-giam-gia-manh-cac-mat-hang-ban-chay-202310060755421.htm";
-        org.jsoup.nodes.Document doc = Jsoup.connect(link).get();
-        Elements page = doc.select("div[itemprop=articleBody]");
-        System.out.println(page);
-        return new ResponseEntity<>(newspaperService.getAll(), HttpStatus.OK);
-    }
+//    @GetMapping("/ok2")
+//    public ResponseEntity<List<Newspaper>> get2() throws IOException {
+//        String link = "https://tuoitre.vn/sieu-thi-giam-gia-manh-cac-mat-hang-ban-chay-202310060755421.htm";
+//        org.jsoup.nodes.Document doc = Jsoup.connect(link).get();
+//        Elements page = doc.select("div[itemprop=articleBody]");
+//        System.out.println(page);
+//        return new ResponseEntity<>(newspaperService.getAll(), HttpStatus.OK);
+//    }
 }

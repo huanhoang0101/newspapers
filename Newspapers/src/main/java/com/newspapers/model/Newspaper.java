@@ -1,6 +1,7 @@
 package com.newspapers.model;
 
 import jakarta.persistence.*;
+//import javax.persistence.*;
 import lombok.Data;
 
 @Entity

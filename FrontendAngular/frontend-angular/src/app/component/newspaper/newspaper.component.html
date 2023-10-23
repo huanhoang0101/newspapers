@@ -1,13 +1,14 @@
 <app-navbar></app-navbar>
 <div class="homePage">
     <div class="wrapper-container">
+        <button (click)="crawlNewspapers()" type="button" class="btn btn-info">Lấy báo mới</button>
         <div class="homePage-title">
             <h1>Tin mới nhất</h1>
         </div>
         <div class="newspaper">
             <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div *ngFor="let news of newspaperList">
-                    <div class="col">
+                <div *ngFor="let news of newspaperList1" class="newspaper-list">
+                    <div class="col-lg-4 col-sm-6 col-12">
                         <div class="card h-100" [routerLink]="['/d', news.id]">
                             <div class="newspaper-img">
                                 <img src="{{news.img}}" class="card-img-top" alt="...">
@@ -28,5 +29,6 @@
                 </div>
             </div>
         </div>
+        <div class="loader"></div>
     </div>
 </div>

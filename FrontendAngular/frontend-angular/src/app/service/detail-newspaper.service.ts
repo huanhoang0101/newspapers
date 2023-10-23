@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Newspaper } from './class/newspaper';
+import { Newspaper } from '../class/newspaper';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DetailNewspaperService {
 
-  private baseUrl = "http://localhost:8080/api/d/get";
+  private baseUrl = "http://localhost:8080/api/detail/get";
 
   constructor(private httpClient: HttpClient) { }
 

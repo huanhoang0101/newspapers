@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Newspaper } from '../class/newspaper';
-import { DetailNewspaperService } from '../detail-newspaper.service';
+import { Newspaper } from '../../class/newspaper';
+import { DetailNewspaperService } from '../../service/detail-newspaper.service';
 
 @Component({
   selector: 'app-detail-newspaper',

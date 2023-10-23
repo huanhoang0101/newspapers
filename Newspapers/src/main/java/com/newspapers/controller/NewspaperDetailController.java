@@ -17,7 +17,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @Controller
-@RequestMapping("/api/d")
+@RequestMapping("/api/detail")
 public class NewspaperDetailController {
     @Autowired
     private NewspaperDetailService newspaperDetailService;

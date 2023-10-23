@@ -4,6 +4,15 @@
 
 .wrapper-container {
     padding: 0 100px;
+
+    @media (min-width: 576px) {
+        padding: 0 12px;
+    }
+
+    @media (min-width: 320px) {
+        padding: 0 4px;
+    }
+        
 }
 
 .homePage-title {
@@ -33,18 +42,25 @@
     position: relative;
     text-transform: capitalize;
     z-index: 2;
+
+    @media (max-width: 769px) {
+        font-size: 36px;
+    }
 }
 
-.col {
-    height: 100%;
-    padding: 8px 0;
+.newspaper-list {
+    display: contents;
+}
+
+.col-lg-4 {
+    margin-bottom: 24px;
 }
 
 .card {
     border: 1px solid #c3dc35;
     border-radius: 20px;
     overflow: hidden;
-    margin: 5px;
+    margin: 15px;
 
     &:hover {
         cursor: pointer;
