@@ -2,7 +2,14 @@ package com.newspapers.service;
 
 import com.newspapers.model.Newspaper;
 import com.newspapers.repository.NewspaperRepo;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,5 +36,9 @@ public class NewspaperServiceImpl implements NewspaperService{
     @Override
     public Newspaper getDetail(int id) {
         return newspaperRepo.findById(id).get();
+    }
+
+    public boolean isNewspaperExists(String title) {
+        return newspaperRepo.findNewspaperByTitle(title) == null ? false : true;
     }
 }

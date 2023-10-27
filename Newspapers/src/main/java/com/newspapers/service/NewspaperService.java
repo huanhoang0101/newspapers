@@ -11,4 +11,5 @@ public interface NewspaperService {
     public Newspaper add (Newspaper n);
     public List<Newspaper> addListNewspaper(List<Newspaper> list);
     public Newspaper getDetail(int id);
+    public boolean isNewspaperExists(String title);
 }

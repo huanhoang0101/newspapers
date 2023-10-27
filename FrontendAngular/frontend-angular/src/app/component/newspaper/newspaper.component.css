@@ -1,5 +1,13 @@
 .homePage {
-    padding: 40px;
+    padding: 70px;
+
+    @media (max-width: 768px) {
+        padding: 40px;
+    }
+
+    @media (max-width: 426px) {
+        padding: 20px;
+    }
 }
 
 .wrapper-container {

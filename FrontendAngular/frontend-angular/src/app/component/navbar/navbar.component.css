@@ -13,10 +13,10 @@
 .navbar li {
     font-size: 15px;
     font-weight: 700;
-}
 
-.navbar li:hover {
-    text-decoration: underline;
+    :hover {
+        text-decoration: underline;
+    }
 }
 
 .navbar img {

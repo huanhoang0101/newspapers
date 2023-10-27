@@ -17,6 +17,6 @@ export class NewspaperService {
   }
 
   crawlNewspapers(): Observable<Newspaper[]> {
-    return this.httpClient.get<Newspaper[]>(this.baseUrl + 'ok');
+    return this.httpClient.get<Newspaper[]>(this.baseUrl + 'add');
   }
 }

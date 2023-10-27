@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface NewspaperRepo extends JpaRepository<Newspaper, Integer> {
+    Newspaper findNewspaperByTitle(String title);
 }

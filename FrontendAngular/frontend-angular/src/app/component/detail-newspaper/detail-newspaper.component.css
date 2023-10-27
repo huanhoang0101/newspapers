@@ -1,5 +1,13 @@
 .detailPage {
     padding: 40px 70px;
+
+    @media (max-width: 768px) {
+        padding: 20px;
+    }
+
+    @media (max-width: 426px) {
+       padding: 15px;
+    }
 }
 
 .detailPage-title {
@@ -9,4 +17,38 @@
     font-size: 42px;
     font-weight: 700;
     text-transform: capitalize;
+
+    @media (max-width: 768px) {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 426px) {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
 }
+
+:host ::ng-deep .detailPage-content {
+    margin-bottom: 40px;
+    padding: 0 40px;
+    font-size: 28px;
+
+    @media (max-width: 768px) {
+        font-size: 18px;
+        padding: 0 20px;
+    }
+
+    @media (max-width: 426px) {
+       font-size: 12px;
+       padding: 0 5px;
+    }
+}
+
+:host ::ng-deep .detailPage-content img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
