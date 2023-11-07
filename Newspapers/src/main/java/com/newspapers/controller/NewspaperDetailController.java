@@ -1,6 +1,7 @@
 package com.newspapers.controller;
 
 import com.newspapers.model.Newspaper;
+import com.newspapers.response.ResponseHandler;
 import com.newspapers.service.NewspaperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,13 @@ public class NewspaperDetailController {
 
     //get newspaper from db
     @GetMapping ("/get/{id}")
-    public ResponseEntity<Newspaper> getDetailById(@PathVariable("id") int id) {
-        return new ResponseEntity<>(newspaperService.getDetail(id), HttpStatus.OK);
+    public ResponseEntity<Object> getDetailById(@PathVariable("id") int id) {
+        try {
+            return ResponseHandler.responseSuccessBuilder(true,
+                    HttpStatus.OK, newspaperService.getDetail(id));
+        } catch (Exception e) {
+            return ResponseHandler.responseErrorBuilder(false,
+                    HttpStatus.BAD_REQUEST, e.getMessage());
+        }
     }
 }

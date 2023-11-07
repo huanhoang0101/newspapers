@@ -2,6 +2,7 @@ package com.newspapers.controller;
 
 import com.newspapers.model.Category;
 import com.newspapers.model.Newspaper;
+import com.newspapers.response.ResponseHandler;
 import com.newspapers.service.CategoryService;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
@@ -24,23 +25,38 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @GetMapping("/get")
-    public ResponseEntity<List<Category>> getAllCategory() {
-        return new ResponseEntity<>(categoryService.getAllCategory(), HttpStatus.OK);
+    public ResponseEntity<Object> getAllCategory() {
+        try {
+            List<Category> c;
+            c = categoryService.getAllCategory();
+            return ResponseHandler.responseSuccessBuilder(true,
+                    HttpStatus.OK, c);
+        } catch (Exception e) {
+            return ResponseHandler.responseErrorBuilder(false,
+                    HttpStatus.BAD_REQUEST, e.getMessage());
+        }
     }
 
     @GetMapping("/add")
-    public ResponseEntity<List<Category>> addCategory() throws IOException {
+    public ResponseEntity<Object> addCategory() throws IOException {
         List<Category> list = new ArrayList<>();
         String link="https://tuoitre.vn";
-        org.jsoup.nodes.Document doc = Jsoup.connect(link).get();
-        Elements page = doc.select("div.footer__nav");
-        for(Element element: page){
-            Elements nav_link = element.getElementsByClass("nav-link");
-            for (Element element1 : nav_link) {
-                String name = element1.text();
-                list.add(new Category(name));
+        try {
+            org.jsoup.nodes.Document doc = Jsoup.connect(link).get();
+            Elements page = doc.select("div.footer__nav");
+            for(Element element: page){
+                Elements nav_link = element.getElementsByClass("nav-link");
+                for (Element element1 : nav_link) {
+                    String name = element1.text();
+                    list.add(new Category(name));
+                }
             }
+            return ResponseHandler.responseSuccessBuilder(true,
+                    HttpStatus.CREATED,
+                    categoryService.addCategory(list));
+        } catch (Exception e) {
+            return ResponseHandler.responseErrorBuilder(false,
+                    HttpStatus.BAD_REQUEST, e.getMessage());
         }
-        return new ResponseEntity<>(categoryService.addCategory(list), HttpStatus.CREATED);
     }
 }
